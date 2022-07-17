@@ -1,0 +1,59 @@
+{
+	"name": "auth",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "tsc && vite build",
+		"commit": "git-cz",
+		"dev": "vite",
+		"prepare": "husky install",
+		"preview": "vite preview"
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
+	"lint-staged": {
+		"*.{ts,tsx}": "eslint",
+		"*.{js,ts,tsx,md,html,css,json}": "prettier --write",
+		"!(*pnpm-lock).yaml": "prettier --write"
+	},
+	"config": {
+		"commitizen": {
+			"path": "@commitlint/cz-commitlint"
+		}
+	},
+	"dependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-router-dom": "^6.3.0"
+	},
+	"devDependencies": {
+		"@azure/msal-browser": "^2.27.0",
+		"@azure/msal-react": "^1.4.3",
+		"@commitlint/cli": "^17.0.3",
+		"@commitlint/config-conventional": "^17.0.3",
+		"@commitlint/cz-commitlint": "^17.0.3",
+		"@types/react": "^18.0.15",
+		"@types/react-dom": "^18.0.6",
+		"@typescript-eslint/eslint-plugin": "^5.30.6",
+		"@typescript-eslint/parser": "^5.30.6",
+		"@vitejs/plugin-react": "^2.0.0",
+		"commitizen": "^4.2.4",
+		"eslint": "^8.19.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-react": "^7.30.1",
+		"husky": "^8.0.0",
+		"inquirer": "8",
+		"is-ci": "^3.0.1",
+		"lint-staged": "^13.0.3",
+		"prettier": "^2.7.1",
+		"typescript": "^4.6.4",
+		"vite": "^3.0.0",
+		"vite-plugin-mkcert": "^1.8.1",
+		"vite-tsconfig-paths": "^3.5.0"
+	}
+}
