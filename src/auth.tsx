@@ -9,19 +9,42 @@ import {
 import { useEffect, useState, useMemo } from "react";
 import { useNavigate, NavigateFunction } from "react-router-dom";
 
+export const b2cPolicies = {
+	names: {
+		signUpSignIn: "B2C_1_LEAF_UNIFIED_SIGN_IN_SIGN_UP",
+		forgotPassword: "b2c_1_reset",
+		editProfile: "b2c_1_edit_profile",
+	},
+	authorities: {
+		signUpSignIn: {
+			authority:
+				"https://hdnleaf.b2clogin.com/hdnleaf.onmicrosoft.com/B2C_1_LEAF_UNIFIED_SIGN_IN_SIGN_UP",
+		},
+		forgotPassword: {
+			authority:
+				"https://hdnleaf.b2clogin.com/hdnleaf.onmicrosoft.com/b2c_1_reset",
+		},
+		editProfile: {
+			authority:
+				"https://hdnleaf.b2clogin.com/hdnleaf.onmicrosoft.com/b2c_1_edit_profile",
+		},
+	},
+	authorityDomain: "https://hdnleaf.b2clogin.com",
+};
+
 // Config object to be passed to Msal on creation
 export const msalConfig: Configuration = {
 	auth: {
-		clientId: "5c007736-3695-4853-abca-ec803daa85a2",
-		authority:
-			"https://login.microsoftonline.com/08347458-bb6b-4b14-9325-3976ab9797eb",
+		clientId: "ba17e758-f87d-40c0-8825-904dbabdde51",
+		authority: b2cPolicies.authorities.signUpSignIn.authority,
+		knownAuthorities: [b2cPolicies.authorityDomain],
 		redirectUri: "/",
 	},
 };
 
 // Add here scopes for id token to be used at MS Identity Platform endpoints.
 export const loginRequest: RedirectRequest = {
-	scopes: ["User.Read"],
+	scopes: [],
 };
 
 // Add here the endpoints for MS Graph API services you would like to use.
